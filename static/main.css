@@ -1,6 +1,6 @@
 body{
 	background-color: rgb(220,220,220);
-	font-family: 'Sriracha', cursive;
+	font-family: 'Helvetica', cursive;
 }
 .navText{
 	text-align: center;
@@ -14,7 +14,7 @@ body{
 }
 
 .content{
-	margin: 1% auto;
+	margin: 0 auto;
 	background-color: rgb(33, 37, 41);
 	width: 80%;
 	height: 600px;
@@ -25,4 +25,7 @@ body{
 	text-align: center;
 	margin: 0px auto;
 	
+}
+li{
+	font-size: 25px;
 }
