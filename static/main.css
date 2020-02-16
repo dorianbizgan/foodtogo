@@ -9,14 +9,14 @@ body{
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 70%;
-	height: 450px;
+	max-width: auto;
+	max-height: 450px;
 }
 
 .content{
 	margin: 0 auto;
 	background-color: rgb(33, 37, 41);
-	width: 80%;
+	width: auto;
 	height: 600px;
 	border-radius: 15px;
 }
