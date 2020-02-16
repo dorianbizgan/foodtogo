@@ -1,0 +1,28 @@
+body{
+	background-color: rgb(220,220,220);
+	font-family: 'Sriracha', cursive;
+}
+.navText{
+	text-align: center;
+}
+.caroPic {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 70%;
+	height: 450px;
+}
+
+.content{
+	margin: 1% auto;
+	background-color: rgb(33, 37, 41);
+	width: 80%;
+	height: 600px;
+	border-radius: 15px;
+}
+
+.content-header{
+	text-align: center;
+	margin: 0px auto;
+	
+}
