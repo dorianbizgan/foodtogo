@@ -1,6 +1,17 @@
-body{
+html,body{
 	background-color: rgb(220,220,220);
 	font-family: 'Helvetica', cursive;
+	
+}
+a{
+	color: white;
+}
+.navbar-collapse{
+	background-color: rgb(220,220,220);
+}
+.make-sticky{
+	position: -webkit-sticky; /* Safari */
+  	position: sticky;
 }
 .navText{
 	text-align: center;
@@ -9,23 +20,40 @@ body{
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
-	max-width: auto;
-	max-height: 450px;
+	max-width: 70%;
+	height: 30%;
 }
 
 .content{
-	margin: 0 auto;
-	background-color: rgb(33, 37, 41);
-	width: auto;
-	height: 600px;
-	border-radius: 15px;
+	margin: 0px auto;
+	background-color: rgb(235, 235, 235);
+	max-width: 70%;
+	height: auto;
+	
+}
+.text-body{
+	margin: 0px auto;
+	width: 90%;
+	padding: 1% 5% 5% 5%;
 }
 
 .content-header{
 	text-align: center;
 	margin: 0px auto;
-	
 }
 li{
 	font-size: 25px;
 }
+.h2{
+	
+	text-align: center;
+	white-space: nowrap;
+	margin:0px auto;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+
+
+
+
