@@ -5,6 +5,8 @@
  <link rel="stylesheet" type="text/css" href="../static/main.css">
 
 </head>
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <a class="navbar-brand" href="{{url_for('home')}}">Recipe Gini</a>
@@ -55,30 +57,36 @@ strCategory (meal category)
 strInstructions (meal instructions) - maybe not
 
 -->
-
-	<h1> Information about {{meal.strMeal}} </h1>
-	<img src={{meal.strMealThumb}}>
-    
+<div class="media">
+  <img class="align-self-center mr-3" src={{meal.strMealThumb}} alt="Generic placeholder image">
+  <div class="media-body">
+    <h5 class="mt-0">Information about {{meal.strMeal}}</h5>
     <p>Meal Category: {{meal.strCategory}}</p>
-    
-    <table>
+    <table class="table">
+    <thead>
       <tr>
-        <th>Ingredients</th>
-        <th>Amounts</th>
+        <th scope="col" id="show_meal">Ingredients</th>
+        <th scope="col" id="show_meal">Amounts</th>
       </tr>
+     </thead>
+     <tbody>
       {% for i in ingredients %}
       	<tr> 
-      		<td> {{i.ingredient}} </td>
-      		<td> {{i.amount}}
+      		<td id="show_meal"> {{i.ingredient}} </td>
+      		<td id="show_meal"> {{i.amount}}
       	</tr>
     	{% endfor %}
-      
+      </tbody>
     </table>
-      <p><strong>How to make {{meal.strMeal}}.</strong> <br>
-      
-      {{meal.strInstructions}}
-    	</p>
 
-	</body>
-
+</div>
+</div>
+<br>
+<div class="media">
+  <div class="media-body">
+    <h5 class="mt-0 mb-1">How to make {{meal.strMeal}}</h5>
+     <p>{{meal.strInstructions}} </p>
+</div>
+</div>
+</body>
 </html

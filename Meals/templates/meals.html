@@ -35,16 +35,6 @@ body {
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('aboutUs')}}">About</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
     </ul>
   </div>
 
@@ -55,21 +45,21 @@ body {
 </nav>
 
 <br><br>
-<table class="js-sort-table table-striped" id="meals_table" align="center">
+<table class="js-sort-table table-striped" align="center">
     <thead>
      <tr>
-      <th class="js-sort-string" scope="col">Meal</th>
+      <th class="js-sort-string" scope="col" id="meals_table">Meal</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Mark</td>
+      <td id="meals_table">Mark</td>
     </tr>
     <tr>
-      <td>Jacob</td>
+      <td id="meals_table">Jacob</td>
     </tr>
     <tr>
-      <td>Larry</td>
+      <td id="meals_table">Larry</td>
     </tr>
   </tbody>
 </table>
