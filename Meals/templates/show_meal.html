@@ -18,9 +18,13 @@ strInstructions (meal instructions) - maybe not
     <table>
       <tr>
         <th>Ingredients</th>
+        <th>Amounts</th>
       </tr>
       {% for i in ingredients %}
-      	<tr> <td> {{i}} </td></tr>
+      	<tr> 
+      		<td> {{i.ingredient}} </td>
+      		<td> {{i.amount}}
+      	</tr>
     	{% endfor %}
       
     </table>

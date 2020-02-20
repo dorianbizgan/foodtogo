@@ -31,14 +31,24 @@ def countries():
 @app.route('/view/<int:meal_id>')
 def show_meal(meal_id):
 	meal = find_meal(meal_id)
-	print(meal)
 	ingredients = []
+	amounts = []
+	combined = []
+
 	for key in meal:
 		if "strIngredient" in key and meal[key] != None and meal[key] != '':
 			ingredients.append(meal[key])
 
+		if "strMeasure" in key and meal[key] != None and meal[key] != '':
+			amounts.append(meal[key])
 
-
+	print(str(ingredients) +  "\n" + str(amounts))
+	for i in ingredients:
+		try:
+			combined.append({"ingredient":i,"amount":amounts[ingredients.index(i)]})
+		except:
+			continue
+	ingredients = combined
 	return(render_template("show_meal.html", meal=meal, ingredients=ingredients))
 
 
