@@ -26,6 +26,7 @@ def meals():
 
 @app.route('/countries/')
 def countries():
+	return("page not created yet")
     return (render_template("countries.html"))
 
 @app.route('/view/<int:meal_id>')
