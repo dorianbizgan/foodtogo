@@ -1,7 +1,53 @@
+<!DOCTYPE html>
 <html>
-	<head></head>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- bootstrap styles sheet -->
+ <link rel="stylesheet" type="text/css" href="../static/main.css">
 
-	<body>
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="{{url_for('home')}}">Recipe Gini</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('meals')}}">Meals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('ingredients')}}">Ingredients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('aboutUs')}}">About</a>
+      </li>
+      <!-- dropdown not useful for phase 1
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      -->
+    </ul>
+  </div>
+
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search for a Recipe" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+<br>
+<br>
 <!--
 So we'll need 
 strMeal (meal name)
@@ -28,7 +74,7 @@ strInstructions (meal instructions) - maybe not
     	{% endfor %}
       
     </table>
-      <p>How to make {{meal.strMeal}}. <br>
+      <p><strong>How to make {{meal.strMeal}}.</strong> <br>
       
       {{meal.strInstructions}}
     	</p>
