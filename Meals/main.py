@@ -28,6 +28,14 @@ def meals():
 def countries():
     return (render_template("countries.html"))
 
+@app.route('/ingredients/<string:ingredient_filter>')
+def meal_filtered(ingredient_filter):
+	if ingredient_filter == "Free-range eggs":
+		return(render_template("eggs.html"))
+	if ingredient_filter == "almond extract":
+		return(render_template("almonds.html"))
+	if ingredient_filter == "butter":
+		return(render_template("butter.html"))		
 
 @app.route('/view/<int:meal_id>')
 def show_meal(meal_id):
