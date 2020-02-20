@@ -33,7 +33,7 @@ def meal_filtered(ingredient_filter):
 	if ingredient_filter == "Free-range eggs":
 		return(render_template("eggs.html"))
 	if ingredient_filter == "almond extract":
-		return(render_template("almonds.html"))
+		return(render_template("almond.html"))
 	if ingredient_filter == "butter":
 		return(render_template("butter.html"))		
 
