@@ -9,7 +9,7 @@ def home():
     return render_template("index.html")
 @app.route('/about-us/')
 def aboutUs():
-    pass
+    return (render_template("aboutUs.html"))
 
 @app.route('/state/new/', methods=['GET', 'POST'])
 def newState():
