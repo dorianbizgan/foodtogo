@@ -36,4 +36,17 @@ li{
 	font-size: 20px;
 }
 
+#ing_meals {
+width : 50%;
+}
+#meals_table
+{
+color:#FFFFFF;
+border-bottom: 1px solid #ddd;
+text-align: center;
+padding: 15px;
+
+} 
+
+
 
