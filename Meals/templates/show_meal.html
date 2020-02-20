@@ -1,0 +1,34 @@
+<html>
+	<head></head>
+
+	<body>
+<!--
+So we'll need 
+strMeal (meal name)
+strCategory (meal category)
+strInstructions (meal instructions) - maybe not
+
+-->
+
+	<h1> Information about {{meal.strMeal}} </h1>
+	<img src={{meal.strMealThumb}}>
+    
+    <p>Meal Category: {{meal.strCategory}}</p>
+    
+    <table>
+      <tr>
+        <th>Ingredients</th>
+      </tr>
+      {% for i in ingredients %}
+      	<tr> <td> {{i}} </td></tr>
+    	{% endfor %}
+      
+    </table>
+      <p>How to make {{meal.strMeal}}. <br>
+      
+      {{meal.strInstructions}}
+    	</p>
+
+	</body>
+
+</html
