@@ -46,7 +46,7 @@ def meal_area(area):
 	if area == "french":
 		return(render_template("french.html"))			
 
-@app.route('/view/<int:meal_id>')
+@app.route('/meals/<int:meal_id>')
 def show_meal(meal_id):
 	meal = find_meal(meal_id)
 	ingredients = []
