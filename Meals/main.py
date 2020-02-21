@@ -35,7 +35,16 @@ def meal_filtered(ingredient_filter):
 	if ingredient_filter == "almond extract":
 		return(render_template("almond.html"))
 	if ingredient_filter == "butter":
-		return(render_template("butter.html"))		
+		return(render_template("butter.html"))
+
+@app.route('/countries/<string:area>')
+def meal_area(area):
+	if area == "british":
+		return(render_template("british.html"))
+	if area == "italian":
+		return(render_template("italian.html"))
+	if area == "french":
+		return(render_template("french.html"))			
 
 @app.route('/view/<int:meal_id>')
 def show_meal(meal_id):
