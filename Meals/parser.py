@@ -1,6 +1,6 @@
 #parsing 
 import requests
-
+from cache
 def parse_meals():
 	meals= []
 	alph = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
@@ -18,6 +18,5 @@ def parse_meals():
 		except:
 			pass
 		url = url[0:len(url)-1] + alph[i]
-	print(meals)
-	return meals
+4	return meals
 parse_meals()
