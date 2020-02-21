@@ -1,0 +1,61 @@
+* a72837b : removing .DS_Store file
+* a49669b : removing pycache file
+* 8489b80 : changed file structure
+* ee0aa0e : changed description size
+* db09ad9 : added carousel image descriptions
+* 3a3ee42 : changed bootstrap.html to index.html and changed route to reflect
+* 2ebffaa : changed view/<meal_id> to meals/<meal_id>
+* b87b552 : Added the gitlab wiki link and changed the aboutUs file a little bit
+* 380d6f5 : Changed the title heading of the website name
+* 282d06c : Added about information and the stats from gitlab
+* 503ce86 : fixed title issue going amongst links
+* 920c0ec : completed countries page, added templates and workable links
+* 9686660 : adding butter template
+* 0fe71c0 :  added egg template, almond template
+* 0f5f9a8 : changed logo name for all templates
+* 7a15620 : added meal origin
+*   1cab342 : changed size of meal name on show_meal.html
+|\  
+| * 6e77be4 : removed text below meal card titles
+* | c5c4fe1 : changed size of meal title
+|/  
+* 6d255ed : added ingredients routes, edited ingredients page
+* be13b9c : added meals to meals
+* 9572ad9 : Everything looks the same now, closes 11' git status exit() q
+* 20f4939 : fixed linking issue with card
+* 81cc68f : Fixed content on splashpage
+* ae01b5d : created ingredient dictionary
+* fdba0ad : Edited ShowHtml
+* b3a8138 : returning something rather than tthe website failing when clicking on countries at least until page is made
+* 28de47e : added navbar to show_meal.html
+* 3398e15 : Added the three pages
+* 842dde3 : added ingredients measurements to the table
+* 48e3385 : added show_meal needs to be made pretty
+* 7266900 : added links to splashpage cards based on meal id, updated spelling erros
+* a4531c3 : added splashpage cards with appropriate meals with url to id
+* e0083a2 :  added dummy links on cards on splashpage, replace href with 'view/mealId>'
+* b4decaa : added a fuction that gets all ingredients from a meal dict
+* bd3be41 : commenting out the dropdown bar for this phase
+* 2cfb8d9 : fixed parser to get meals from all alphabets
+*   8d45b9d : Merge branch 'master' of https://gitlab.com/TechPointYT/ouramerica
+|\  
+| * e2d7b4e :  adding parser.py, which scrapes the API for all meals, and a cache for the meals data
+* | 9ea3ffe : added flask links
+|/  
+* d0645f1 : main.py for meals
+* 5e1c272 : recipe list page template w/o logic
+* 722847a : Meals folder
+* 2fd1edb : minor fixes to splash and created about us template w/o information
+* 6e0cfd7 : update and completed splashpage. links not set yet
+*   a5297a7 : Merge branch 'master' of https://gitlab.com/TechPointYT/ouramerica corrected
+|\  
+| *   a49ecb4 : Merge branch 'revert-c76a682b' into 'master'
+| |\  
+| | * 5f6cca5 : Revert "Add the sliders"
+| |/  
+| * c76a682 : Add the sliders
+* | 80dbc18 : update and completed splashpage. links not set yet
+|/  
+* 0a9db18 : edited HTML
+* 5f3a740 : file so far
+* 88ec635 : file so far
