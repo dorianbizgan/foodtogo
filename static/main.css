@@ -1,58 +1,49 @@
-html,body{
+body{
 	background-color: rgb(220,220,220);
 	font-family: 'Helvetica', cursive;
-	
-}
-a{
-	color: white;
-}
-.navbar-collapse{
-	background-color: rgb(220,220,220);
-}
-.make-sticky{
-	position: -webkit-sticky; /* Safari */
-  	position: sticky;
 }
 .navText{
 	text-align: center;
 }
-.caroPic {
-	display: block;
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 70%;
-	height: 30%;
+
+.carousel {
+
+height:600px;
+
 }
 
-.content{
-	margin: 0px auto;
-	background-color: rgb(235, 235, 235);
-	max-width: 70%;
-	height: auto;
+.carousel-inner{
+
+height:600px;
+
+object-fit: contain;
+
 }
-.text-body{
-	margin: 0px auto;
-	width: 90%;
-	padding: 1% 5% 5% 5%;
+
+.card-img-top {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
 }
 
 .content-header{
 	text-align: center;
 	margin: 0px auto;
-}
-li{
-	font-size: 25px;
-}
-.h2{
 	
-	text-align: center;
-	white-space: nowrap;
-	margin:0px auto;
-	padding-top: 2%;
-	padding-bottom: 2%;
 }
 
+li{
+	font-size: 20px;
+}
 
+#ing_meals {
+width : 50%;
+}
+#meals_table
+{
+color:#FFFFFF;
+border-bottom: 1px solid #ddd;
+text-align: center;
+padding: 15px;
 
-
-
+}

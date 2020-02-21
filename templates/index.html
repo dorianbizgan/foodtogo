@@ -1,67 +1,166 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	 <link rel="stylesheet" type="text/css" href="../static/main.css">
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <meta charset="utf-8">
- 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- bootstrap styles sheet -->
+ <link rel="stylesheet" type="text/css" href="../static/main.css">
+
 </head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-<body class="">
-	
-
-	
-	<div  class="">
-	<nav id="navbar-example2" class=" make-sticky navbar navbar-light bg-dark ">
-  		<a class="navbar-brand" href="#"> <img  style="display: inline;"width=auto height="100" src="../static/photos/image.png"></a>
-  		<button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon bg-light"></span>
+  <a class="navbar-brand" href="{{url_for('home')}}"><h3>Food Mood</h3></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse " id="navbarSupportedContent">
-  	<ul class="navbar-nav mr-auto">
-  	 <li class="nav-item dropdown">
-       <a class="nav-link text-center" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About Us</a>
-       
-    </li>	
-    <li class="nav-item">
-      <a class="nav-link text-center" href="#fat">Population</a>
-    </li>
-    
-  </ul>
-  </div> 
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('meals')}}">Meals</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('ingredients')}}">Ingredients</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('aboutUs')}}">About</a>
+    </ul>
+  </div>
+
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search for a Recipe" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </nav>
-	</div>
-	
 
-	<div class="container-fluid">
-		<div>
-		<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  			<div class="carousel-inner">
-    	<div class="carousel-item active">
-      		<img class=" caroPic caroPic2 d-block w-100" src="../static/photos/back1.jpg" alt="First slide">
-    	</div>
-    	<div class="carousel-item">
-      		<img class="caroPic caroPic2 d-block w-100" src="../static/photos/back2.jpg" alt="Second slide">
-    	</div>
-    	<div class="carousel-item">
-      		<img class="caroPic caroPic2 d-block w-100" src="../static/photos/back3.jpg" alt="Third slide">
-    	</div>
-  		</div>
-	</div>
-	<div class="content content2">
-		<div class="container-fluid "><p class="h3 text-center">Welcome to your source of census information</p> </div>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class=" caroPic d-block w-100" src="../static/photos/back1.jpg" alt="First slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Find today's lunch on here</h3>
+        <p>Choose between a large variety of meals from all sorts of cuisines!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="caroPic d-block w-100" src="../static/photos/back2.jpg" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Delicious Food is easy to fine</h3>
+        <p>Cooking at home also can save tons of money!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="caroPic d-block w-100" src="../static/photos/back3.jpg" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Refine you cooking skills</h3>
+        <p>Start cooking today to be a better chef tomorrow.</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<br>
+<br>
+<div class="content content2">
+		<div class="container-fluid "><p class="h3 text-center">Food Mood</p> </div>
 		
-		<p class="text-body h5 text-center"> We created this website to help people get the population information collected by the census. On the population tab you will find the information categorized by state and easily accessible at the click of the button. With that mind click, please click on the population tab to continue</p>
-	</div>
-		
-	</div>
+		<p class="text-body h5 text-center"> We created this website to help foodies get information about many meals accross different cuisines. 
+<br><br>
+Popular Meals
+</p>
 	</div>
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	
+
+<br>
+
+
+<div class="row row-cols-1 row-cols-md-3">
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52805">
+
+      <img src="https://www.themealdb.com/images/media/meals/xrttsx1487339558.jpg" class="card-img-top" alt="...">
+    </a>
+      <div class="card-body">
+        <h5 class="card-title">Lamb Biryani</h5>
+        <p class="card-text">Biryani is a mixed rice dish with its origins among the Muslims of the Indian subcontinent.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52773">
+      <img src="https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">Honey Teriyaki Salmon</h5>
+        <p class="card-text">This Japanese twist on the Honey Salmons is popular amongst many restaraunts.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52819">
+      <img src="https://www.themealdb.com/images/media/meals/uvuyxu1503067369.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">Cajun Spiced Fish Tacos</h5>
+        <p class="card-text">Take a trip to Louisiana with these juicy Cajun fish tacos.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52982">
+      <img src="https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">Spaghetti alla Carbonara</h5>
+        <p class="card-text">When you're craving a comfort food, nothing will cure you like creamy spaghetti carbonara.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52952">
+      <img src="https://www.themealdb.com/images/media/meals/1529444830.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">Beef Lo Mein</h5>
+        <p class="card-text">These stir-fry noodles are amongst the most popular take-out food in America.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card h-100">
+      <a href = "/meals/52858">
+      <img src="https://www.themealdb.com/images/media/meals/swttys1511385853.jpg" class="card-img-top" alt="...">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title">New York Cheesecake</h5>
+        <p class="card-text">New York cheesecake is known for its creamy, satiny texture. It is rich, dense and tall with a flat top.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 </html>
