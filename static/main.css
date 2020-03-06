@@ -1,7 +1,38 @@
-body{
-	background-color: rgb(220,220,220);
-	font-family: 'Helvetica', cursive;
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&family=Josefin+Sans&family=Spartan&display=swap');
+
+@media (min-width:768px) {
+    .ml-6 {
+        margin-left: 20% !important;
+    }
+
+    .mr-6 {
+        margin-right:20% !important;
+    }
+    
+    .mt-6{
+        margin-top:-3%;
+    }
+        
 }
+
+@media (max-width:767.98px) {
+    .show_meal-l {
+        padding-left:5%;
+    }
+}
+
+h1, body{
+    font-family: 'EB Garamond', serif;
+}
+
+h1 {
+    font-size: 45px;
+}
+
+.navbar, table{
+    font-family: 'Spartan',sans-serif;
+}
+
 .navText{
 	text-align: center;
 }
@@ -33,12 +64,21 @@ object-fit: contain;
 }
 
 li{
-	font-size: 20px;
+	font-size: 25px;
+}
+
+th{
+    font-size: 23px;
+}
+
+td{
+    font-size:20px;
 }
 
 #ing_meals {
 width : 50%;
 }
+
 #meals_table
 {
 color:#FFFFFF;
@@ -46,4 +86,17 @@ border-bottom: 1px solid #ddd;
 text-align: center;
 padding: 15px;
 
+}
+
+#instructions {
+    font-size: 25px;
+}
+
+#origin_cat {
+    font-size:20px;
+}
+.card-img-top {
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
 }

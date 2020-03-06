@@ -56,7 +56,7 @@ strMeal (meal name)
 strCategory (meal category)
 strInstructions (meal instructions) - maybe not
 
--->
+OLD HTML
 <div class="media">
   <img class="align-self-center mr-3" src={{meal.strMealThumb}} alt="Generic placeholder image">
   <div class="media-body">
@@ -87,7 +87,47 @@ strInstructions (meal instructions) - maybe not
   <div class="media-body">
     <h5 class="mt-0 mb-1">How to make {{meal.strMeal}}</h5>
      <p>{{meal.strInstructions}} </p>
+  </div>
 </div>
-</div>
-</body>
-</html
+ -->   
+    
+    
+    
+
+    
+    
+    
+    
+<div class="card mx-auto" style="max-width: 80%;">
+  <img src="{{meal.strMealThumb}}" class="card-img-top" alt="...">
+  <div class="card-body mx-auto">
+    <h1 class="card-title">{{meal.strMeal}}</h1>
+    <p id="origin_cat" class="card-text">{{meal.strArea}} {{meal.strCategory}}</p>
+  </div>
+  <div   class="ml-6 mr-6 mt-6 ml-xs-0 mr-xs-0 ml-sm-0 mr-sm-0" style="margin-left:10%; margin-right:10%; margin-bottom: 5%"> 
+  <table class="table table-borderless" style=" background-color: antiquewhite; padding-bottom:5%">
+      <thead>
+      <tr>
+        <th scope="col" class="font-weight-bolder" style="padding-left: 20%; padding-top:3%">Ingredients</th>
+
+      </tr>
+     </thead>
+     <tbody>
+      {% for i in ingredients %}
+      	<tr> 
+      		<td style="padding-left: 20%;">{{i.amount}} {{i.ingredient}} </td> 
+      	</tr>
+    	{% endfor %}
+         <p style="padding-bottom: :5%">&nbsp;</p>
+         
+      </tbody>
+    </table>
+    </div>
+  <div id="instructions" class="card-body" style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%">
+    <p class="card-text font-weight-bolder">Instructions</p>
+    <p class="card-text">{{meal.strInstructions}}</p>
+  </div>
+</div>    
+    
+</html>
+
