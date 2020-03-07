@@ -4,6 +4,10 @@ import traceback
 from cache_meals import meals, find_meal
 app = Flask(__name__)
 
+import sys
+if sys.version_info.major < 3:
+    reload(sys)
+sys.setdefaultencoding('utf8')
 
 #with open('cache_meals.txt','r') as inf:
 #    dict_from_file = eval(inf.read())
