@@ -4,6 +4,10 @@ import traceback
 from cache_meals import meals, find_meal
 app = Flask(__name__)
 
+#adding break for HTML whenever there's a new line in instructions
+for meal in meals:
+	meal["strInstructions"] = meal["strInstructions"].replace('\n', '<br><br>')
+
 import sys
 if sys.version_info.major < 3:
     reload(sys)
