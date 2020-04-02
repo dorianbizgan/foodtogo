@@ -17,6 +17,7 @@ def create_meals():
         meal_name = oneMeal['strMeal']
         category = oneMeal['strCategory']
         area = oneMeal['strArea']
+        
         instructions = oneMeal['strInstructions']
 
         #ingred is the dictionary of all ingredients
@@ -35,11 +36,11 @@ def create_meals():
 
         image = oneMeal['strMealThumb']
                        
-
+        
         newName = Meal_Name(meal_name = meal_name, idMeal = int(idMeal))
         newCategory = Meal_Category(idMeal = int(idMeal), category = category)
         newArea = Meal_Area(idMeal = int(idMeal), area = area)
-
+        
         #adding only one ingredient and measure right now
         newIngredients = Meal_Ingredients(idMeal = int(idMeal),ingredient_1 = ingred['ingredient_1'], ingredient_2 = ingred['ingredient_2'], ingredient_3 = ingred['ingredient_3'],
                                           ingredient_4 = ingred['ingredient_4'], ingredient_5 = ingred['ingredient_5'], ingredient_6 = ingred['ingredient_6'],
@@ -62,7 +63,8 @@ def create_meals():
             #db.session.add(newIngredients)
         newImage = Meal_Image(idMeal = int(idMeal), image = image)
         
-        # After I create the meal, I can then add it to my session. 
+        # After I create the meal, I can then add it to my session.
+        
         db.session.add(newName)
         db.session.add(newCategory)
         db.session.add(newArea)

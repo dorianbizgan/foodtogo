@@ -27,7 +27,7 @@ body {
         <a class="nav-link" href="{{url_for('meals')}}">Meals</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('ingredients')}}">Ingredients</a>
+        <a class="nav-link" href="{{url_for('categories')}}">Categories </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
@@ -52,15 +52,11 @@ body {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td id="meals_table"><a href="/ingredients/Free-range%20eggs">Free-range Eggs</a></td>
-    </tr>
-    <tr>
-      <td id="meals_table"><a href="/ingredients/almond%20extract">Almond Extract</a></td>
-    </tr>
-    <tr>
-      <td id="meals_table"><a href="/ingredients/butter">Butter</a></td>
-    </tr>
+	{% for i in categories %}
+   		 <tr>
+		<td id="meals_table">{{i[0]}}</td>
+    		</tr>
+	{% endfor %}
   </tbody>
 </table>
 

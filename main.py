@@ -2,19 +2,18 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import random
 import traceback
 from cache_meals import meals, find_meal
-app = Flask(__name__)
+from create_db import app, db, Meal_Name, Meal_Category, Meal_Area, Meal_Ingredients, Meal_Instructions, Meal_Image, create_meals
+from sqlalchemy import func
+from sqlalchemy import distinct
 
 #adding break for HTML whenever there's a new line in instructions
-for meal in meals:
-	meal["strInstructions"] = meal["strInstructions"].replace('\n', '<br>')
+#for meal in meals:
+#	meal["strInstructions"] = meal["strInstructions"].replace('\n', '<br>')
 
-import sys
-if sys.version_info.major < 3:
-    reload(sys)
-sys.setdefaultencoding('utf8')
-
-#with open('cache_meals.txt','r') as inf:
-#    dict_from_file = eval(inf.read())
+#import sys
+#if sys.version_info.major < 3:
+#    reload(sys)
+#sys.setdefaultencoding('utf8')
 
 @app.route('/')
 def home():
@@ -24,74 +23,76 @@ def home():
 def aboutUs():
     return (render_template("aboutUs.html"))
 
-@app.route('/ingredients/')
-def ingredients():
-    return (render_template("ingredients.html"))
+@app.route('/categories/')
+def categories():
+    categories  = db.session.query(distinct(Meal_Category.category))
+    return (render_template("categories.html", categories = categories))
 
 @app.route('/meals/')
 def meals():
+    meals = db.session.query(Meal_Name).all()
     return (render_template("meals.html", meals=meals))
 
 @app.route('/countries/')
 def countries():
-    return (render_template("countries.html"))
-
-@app.route('/ingredients/<string:ingredient_filter>')
-def meal_filtered(ingredient_filter):
-	if ingredient_filter == "Free-range eggs":
-		return(render_template("eggs.html"))
-	if ingredient_filter == "almond extract":
-		return(render_template("almond.html"))
-	if ingredient_filter == "butter":
-		return(render_template("butter.html"))
-
-@app.route('/countries/<string:area>')
-def meal_area(area):
-	if area == "british":
-		return(render_template("british.html"))
-	if area == "italian":
-		return(render_template("italian.html"))
-	if area == "french":
-		return(render_template("french.html"))			
+    countries = db.session.query(distinct(Meal_Area.area))
+    return (render_template("countries.html", countries = countries))
 
 @app.route('/meals/<int:meal_id>')
 def show_meal(meal_id):
+
+	#### REMOVE EVENTUALLY
 	meal = find_meal(meal_id)
 	ingredients = []
 	amounts = []
 	combined = []
+	#### REMOVE EVENTUALLY
 
+	meal_temp = db.session.query(Meal_Name.meal_name).filter(Meal_Name.idMeal == int(meal_id)).all() ### TESTING SQL QUERY
+	meal = {"strMeal": str(meal_temp[0]).strip("[(u'").strip("','])")}
+	#print(str(meal_temp[0]).strip("[(u'").strip("','])"))
+	print(type(meal_temp[0]))
+
+	for i in range(1,21):
+		ingredient_num = "ingredient_" + str(i)
+		measure_num = "measure_" + str(i)
+		ingredient = db.session.query(getattr(Meal_Ingredients,ingredient_num)).filter(Meal_Ingredients.idMeal == int(meal_id)).all()
+		measure = db.session.query(getattr(Meal_Ingredients,measure_num)).filter(Meal_Ingredients.idMeal == int(meal_id)).all()
+		#for j in ingredient:
+		ingredient = str(ingredient[0]).strip("(u'").strip("',)")
+		measure    = str(measure[0]).strip("(u'").strip("',)")
+		if ingredient == "None" or ingredient == "":
+			continue
+		combined.append({"ingredient":ingredient,"measure":measure})
+
+		#print(str(ingredient)[0].strip("[(u'").strip("',)"))
+
+	#	a = db.session.query(Meal_Ingredients.ingredient_num)
+	#	b = db.session.query(Meal_)
+	#for i in temp_ingredients:
+	#	print(i)
+
+	#temptemp = conn.execute(db.select("*").where(Meal_Ingredients.idMeal == int(meal_id)))
+	#print(str(temptemp))
+	'''
 	for key in meal:
 		if "strIngredient" in key and meal[key] != None and meal[key] != '':
 			ingredients.append(meal[key])
 
 		if "strMeasure" in key and meal[key] != None and meal[key] != '':
 			amounts.append(meal[key])
-
-	print(str(ingredients) +  "\n" + str(amounts))
+			
+	#print(str(ingredients) +  "\n" + str(amounts))
 	for i in ingredients:
 		try:
-			combined.append({"ingredient":i,"amount":amounts[ingredients.index(i)]})
+			combined.append({"ingredient":i,"measure":amounts[ingredients.index(i)]})
 		except:
 			continue
+	'''
 	ingredients = combined
 	return(render_template("show_meal.html", meal=meal, ingredients=ingredients))
-
-
-def parse_ingred(dictionary):
-	ing_list = []
-	s = 'strIngredient1'
-	for i in range(2,21):
-		if dictionary[s]:
-			ing_list.append(dictionary[s])
-		if i >= 11:
-			s= s[0:len(s)-2] + str(i)
-		else:
-			s= s[0:len(s)-1] + str(i)
-	return ing_list
         
 if __name__ == '__main__':
-	app.debug = True
-	app.run(host = '0.0.0.0', port = 5000)
+	app.run()
 	
 

@@ -27,7 +27,7 @@ body {
         <a class="nav-link" href="{{url_for('meals')}}">Meals</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('ingredients')}}">Ingredients</a>
+        <a class="nav-link" href="{{url_for('categories')}}">Categories</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
@@ -46,7 +46,23 @@ body {
 
 <br><br>
 
+<table class="js-sort-table table-striped" id= "ing_meals" align="center">
+    <thead>
+     <tr>
+      <th class="js-sort-string" scope="col" id="meals_table">Meals</th>
+    </tr>
+  </thead>
+  <tbody>
+	{% for i in meals %}
+   		 <tr>
+		<td id="meals_table">{{i.meal_name}}</td>
+    		</tr>
+	{% endfor %}
+  </tbody>
+</table>
 
+
+<!--
 <div class="row row-cols-1 row-cols-md-3">
   <div class="col mb-4">
     <div class="card h-100">
@@ -111,6 +127,7 @@ body {
     </div>
   </div>
 </div>
+-->
 
 
 <script src="../static/sort-table.js"></script>
