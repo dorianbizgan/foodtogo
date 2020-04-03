@@ -25,19 +25,19 @@ def create_meals():
         base1 = 'strIngredient'
         base2 = 'ingredient_'
         for i in range(1, 21):
-            ingred[base2 + str(i)] = oneMeal[base1 + str(i)]
+                ingred[base2 + str(i)] = oneMeal[base1 + str(i)]
 
         #measure is the dictionary of all measures
         measure = {}
         base3 = 'strMeasure'
         base4 = 'measure_'
         for i in range(1, 21):
-            measure[base4 + str(i)] = oneMeal[base3 + str(i)]
+                measure[base4 + str(i)] = oneMeal[base3 + str(i)]
 
         image = oneMeal['strMealThumb']
                        
         
-        newName = Meal_Name(meal_name = meal_name, idMeal = int(idMeal), area = area)
+        newName = Meal_Name(meal_name = meal_name, idMeal = int(idMeal))
         newCategory = Meal_Category(idMeal = int(idMeal), category = category)
         newArea = Meal_Area(idMeal = int(idMeal), area = area)
         

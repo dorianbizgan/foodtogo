@@ -13,9 +13,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-a:link {
-  color: white;
-}
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -46,6 +43,7 @@ a:link {
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
+
 <br><br>
 
 <table class="js-sort-table table-striped" id= "ing_meals" align="center">
@@ -55,94 +53,19 @@ a:link {
     </tr>
   </thead>
   <tbody>
-  {% for i in meals.items %}
-       <tr>
-    <td id="meals_table"><a href = "/meals/{{i.idMeal}}"> {{i.meal_name}} </a></td>
-        </tr>
-  {% endfor %}
+	{% for i in meals.items %}
+   		 <tr>
+		<td id="meals_table"><a href= "{{url_for('show_meal', meal_id= i.idMeal)}}">{{i.meal_name}}</a></td>
+    		</tr>
+	{% endfor %}
   </tbody>
 </table>
 
   {% for page_num in meals.iter_pages() %}
     {% if page_num %}
       <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals', page = page_num)}}">{{page_num}} </a>
-
-
-
-  {% endif %}
-
+    {% endif %}
   {% endfor %}
-
-
-
-
-
-<!--
-<div class="row row-cols-1 row-cols-md-3">
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52768">
-
-      <img src="https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg" class="card-img-top" alt="...">
-    </a>
-      <div class="card-body">
-        <h5 class="card-title">Apple Frangipan Tart</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52767">
-      <img src="https://www.themealdb.com/images/media/meals/wyrqqq1468233628.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title">Bakewell tart</h5>
-
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52792">
-      <img src="https://www.themealdb.com/images/media/meals/xqwwpy1483908697.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title">Bread and Butter Pudding</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52832">
-      <img src="https://www.themealdb.com/images/media/meals/qstyvs1505931190.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title">Coq au Vin</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52793">
-      <img src="https://www.themealdb.com/images/media/meals/xrptpq1483909204.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title">Sticky Toffee Pudding Ultimate</h5>
-      </div>
-    </div>
-  </div>
-  <div class="col mb-4">
-    <div class="card h-100">
-      <a href = "/meals/52823">
-      <img src="https://www.themealdb.com/images/media/meals/xxrxux1503070723.jpg" class="card-img-top" alt="...">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title">Salmon Prawn Risotto</h5>
-      </div>
-    </div>
-  </div>
-</div>
--->
 
 
 <script src="../static/sort-table.js"></script>

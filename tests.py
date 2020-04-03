@@ -8,7 +8,7 @@ from models import *
 class TestCase(unittest.TestCase):
     def setUp(self):
         app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:root1234@localhost:5432/mealsdb')
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:HM 8767839393@localhost:5432/mealsdb')
         self.app = app.test_client()
         db.drop_all()
         db.create_all()

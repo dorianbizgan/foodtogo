@@ -48,17 +48,23 @@ body {
 <table class="js-sort-table table-striped" id= "ing_meals" align="center">
     <thead>
      <tr>
-      <th class="js-sort-string" scope="col" id="meals_table">Ingredients</th>
+      <th class="js-sort-string" scope="col" id="meals_table">Categories</th>
     </tr>
   </thead>
   <tbody>
-	{% for i in categories %}
+	{% for i in categories.items %}
    		 <tr>
-		<td id="meals_table">{{i[0]}}</td>
+		<td id="meals_table"><a href= "{{url_for('get_category', category= i[0])}}">{{i[0]}}</a></td>
     		</tr>
 	{% endfor %}
   </tbody>
 </table>
+
+  {% for page_num in categories.iter_pages() %}
+    {% if page_num %}
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('categories', page = page_num)}}">{{page_num}} </a>
+    {% endif %}
+  {% endfor %}
 
 
 <script src="../static/sort-table.js"></script>
