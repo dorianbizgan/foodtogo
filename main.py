@@ -83,7 +83,7 @@ def show_meal(meal_id):
 
 
 	# Programatically adding steps for easier reading
-	meal_instruction_temp = "Step 1:"
+	meal_instruction_temp = "Step 1: "
 	step = 2
 	active = False
 	for a,b in zip(meal_instruction, meal_instruction[1:]):
@@ -92,8 +92,9 @@ def show_meal(meal_id):
 			meal_instruction += a
 			break
 		if active == True:
-			meal_instruction_temp += " <br><br> Step " + str(step) + ": " + a
+			meal_instruction_temp += " <br><br> Step " + str(step) + ": " 
 			step += 1
+			a = b
 			active = False
 			continue
 		try:
@@ -107,7 +108,7 @@ def show_meal(meal_id):
 			meal_instruction_temp += a
 			continue
 
-	meal_instruction = meal_instruction_temp#[:-9]
+	meal_instruction = meal_instruction_temp + b#[:-9]
 	meal_instruction = meal_instruction.strip("\n").strip("\r")
 	print(meal_temp[0])
 
