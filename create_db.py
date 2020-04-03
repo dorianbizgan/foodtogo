@@ -37,7 +37,7 @@ def create_meals():
         image = oneMeal['strMealThumb']
                        
         
-        newName = Meal_Name(meal_name = meal_name, idMeal = int(idMeal))
+        newName = Meal_Name(meal_name = meal_name, idMeal = int(idMeal), area = area)
         newCategory = Meal_Category(idMeal = int(idMeal), category = category)
         newArea = Meal_Area(idMeal = int(idMeal), area = area)
         

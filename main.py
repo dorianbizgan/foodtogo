@@ -1,25 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
 import random
 import traceback
+import requests
 from cache_meals import meals, find_meal
-#<<<<<<< Updated upstream
 from create_db import app, db, Meal_Name, Meal_Category, Meal_Area, Meal_Ingredients, Meal_Instructions, Meal_Image, create_meals
 from sqlalchemy import func
 from sqlalchemy import distinct
-#=======
-#from models import app, db, Meal_Name, Meal_Category, Meal_Area, Meal_Ingredients, Meal_Instructions, Meal_Image
-#from flask_sqlalchemy import SQLAlchemy
-
-#>>>>>>> Stashed changes
-
-#adding break for HTML whenever there's a new line in instructions
-#for meal in meals:
-#	meal["strInstructions"] = meal["strInstructions"].replace('\n', '<br>')
-
-#import sys
-#if sys.version_info.major < 3:
-#    reload(sys)
-#sys.setdefaultencoding('utf8')
 
 @app.route('/')
 def home():
@@ -34,10 +20,26 @@ def categories():
 	categories  = db.session.query(distinct(Meal_Category.category))
 	return (render_template("categories.html", categories = categories))
 
+
 @app.route('/meals/')
 def meals():
-	meals = db.session.query(Meal_Name).all()
-	return (render_template("meals.html", meals=meals))
+	#<<<<<<< HEAD
+	#meals = db.session.query(Meal_Name).all()
+	#return (render_template("meals.html", meals=meals))
+	#=======
+    arg = request.args
+    page = request.args.get('page', 1, type = int)
+    meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)
+    return (render_template("meals.html", meals=meals))
+	#>>>>>>> f0c2f4a3dee7b2c2921b1d56b6678e84f66891a3
+
+@app.route('/meals/country/<string:country>')
+def meals_country(country):
+    
+    page = request.args.get('page', 1, type = int)
+    meals = db.session.query(Meal_Name).filter_by(area = country).paginate(page = page, per_page = 10)
+    return (render_template("meal_country.html", meals=meals))
+
 
 @app.route('/countries/')
 def countries():
@@ -60,13 +62,7 @@ def test(meal_id):
 
 @app.route('/meals/<int:meal_id>')
 def show_meal(meal_id):
-
-	#### REMOVE EVENTUALLY
-	meal = find_meal(meal_id)
-	ingredients = []
-	amounts = []
 	combined = []
-	#### REMOVE EVENTUALLY
 
 	# Querying for the data from the database and converting to usable
 	meal_temp = db.session.query(Meal_Name.meal_name).filter(Meal_Name.idMeal == int(meal_id)).all()[0]
@@ -89,87 +85,53 @@ def show_meal(meal_id):
 	meal_instruction_temp = "Step 1:"
 	step = 2
 	active = False
-	for ch in meal_instruction:
-		if ch == ".":
-			meal_instruction_temp += ". <br><br> Step " + str(step) + ": "
+	for a,b in zip(meal_instruction, meal_instruction[1:]):
+		print(a,b)
+		if b == None:
+			meal_instruction += a
+			break
+		if active == True:
+			meal_instruction_temp += " <br><br> Step " + str(step) + ": " + a
 			step += 1
+			active = False
 			continue
-		meal_instruction_temp += ch
-	meal_instruction = meal_instruction_temp[:-9]
+		try:
+			int(a)
+			if b == ".":
+				active = True
+				continue
+			meal_instruction_temp += a
+
+		except:
+			meal_instruction_temp += a
+			continue
+
+	meal_instruction = meal_instruction_temp#[:-9]
 	meal_instruction = meal_instruction.strip("\n").strip("\r")
 	print(meal_temp[0])
 
-
+	# add all of the queried data into format for Jinja template
 	meal = {"strMeal": meal_temp[0].strip("[(u'").strip("','])"), "strInstructions":meal_instruction, "strMealThumb": meal_img, "strArea": meal_area, "strCategory": meal_category}
-	#print(str(meal_temp[0]).strip("[(u'").strip("','])"))
-	#print(type(meal_temp[0]))
-#>>>>>>> Stashed changes
 
 	for i in range(1,21):
 		ingredient_num = "ingredient_" + str(i)
 		measure_num = "measure_" + str(i)
 		ingredient = db.session.query(getattr(Meal_Ingredients,ingredient_num)).filter(Meal_Ingredients.idMeal == int(meal_id)).all()
-		'''<<<<<<< Updated upstream
-		measure = db.session.query(getattr(Meal_Ingredients,measure_num)).filter(Meal_Ingredients.idMeal == int(meal_id)).all()
-		#for j in ingredient:
-		ingredient = str(ingredient[0]).strip("(u'").strip("',)")
-		measure    = str(measure[0]).strip("(u'").strip("',)")
-		if ingredient == "None" or ingredient == "":
-			continue
-		combined.append({"ingredient":ingredient,"measure":measure})
-		=======
-		'''
+
 		measure = db.session.query(getattr(Meal_Ingredients,measure_num)).filter(Meal_Ingredients.idMeal == int(meal_id))
 		#for j in ingredient:
 		ingredient = str(ingredient[0]).strip("(u'").strip("',)")
-		measure    = str(measure[0]).encode('utf-8').decode('unicode_escape').strip("(u'").strip("',)")
+		measure    = str(measure[0]).encode('utf-8').decode('utf-8').strip("(u'").strip("',)")
 		if ingredient == "None" or ingredient == "":
 			continue
 		combined.append({"ingredient":ingredient,"measure":measure})
-#>>>>>>> Stashed changes
 
-		#print(str(ingredient)[0].strip("[(u'").strip("',)"))
-
-	#	a = db.session.query(Meal_Ingredients.ingredient_num)
-	#	b = db.session.query(Meal_)
-	#for i in temp_ingredients:
-	#	print(i)
-
-	#temptemp = conn.execute(db.select("*").where(Meal_Ingredients.idMeal == int(meal_id)))
-	#print(str(temptemp))
-	'''
-	for key in meal:
-		if "strIngredient" in key and meal[key] != None and meal[key] != '':
-			ingredients.append(meal[key])
-
-		if "strMeasure" in key and meal[key] != None and meal[key] != '':
-			amounts.append(meal[key])
-<<<<<<< Updated upstream
-			
-=======
-
->>>>>>> Stashed changes
-	#print(str(ingredients) +  "\n" + str(amounts))
-	for i in ingredients:
-		try:
-			combined.append({"ingredient":i,"measure":amounts[ingredients.index(i)]})
-		except:
-			continue
-	'''
-#<<<<<<< Updated upstream
-#=======
 	for i in combined:
 		print(i)
-#>>>>>>> Stashed changes
+
 	ingredients = combined
 	return(render_template("show_meal.html", meal=meal, ingredients=ingredients))
 		
 if __name__ == '__main__':
-#<<<<<<< Updated upstream
-#	app.run()
-#=======
-
 	app.run(host = '0.0.0.0', port = 5000)
-#>>>>>>> Stashed changes
-	
 
