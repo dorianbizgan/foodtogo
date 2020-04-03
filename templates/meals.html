@@ -43,7 +43,6 @@ body {
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
-
 <br><br>
 
 <table class="js-sort-table table-striped" id= "ing_meals" align="center">
@@ -53,13 +52,25 @@ body {
     </tr>
   </thead>
   <tbody>
-	{% for i in meals %}
-   		 <tr>
-		<td id="meals_table">{{i.meal_name}}</td>
-    		</tr>
-	{% endfor %}
+  {% for i in meals.items %}
+       <tr>
+    <td id="meals_table"><a href = "/meals/{{i.idMeal}}"> {{i.meal_name}} </a></td>
+        </tr>
+  {% endfor %}
   </tbody>
 </table>
+
+  {% for page_num in meals.iter_pages() %}
+    {% if page_num %}
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals', page = page_num)}}">{{page_num}} </a>
+
+
+
+  {% endif %}
+
+  {% endfor %}
+
+
 
 
 <!--
