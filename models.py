@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:@localhost:5432/mealsdb')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:lionking@localhost:5432/mealsdb')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True # to suppress a warning message
 db = SQLAlchemy(app)
 
@@ -14,6 +14,7 @@ class Meal_Name(db.Model):
 	__tablename__ = 'meal_name'
 	meal_name = db.Column(db.String(80), nullable = False)
 	idMeal = db.Column(db.Integer, primary_key=True)
+	area = db.Column(db.String(80), nullable = False)
 
 
 class Meal_Category(db.Model):

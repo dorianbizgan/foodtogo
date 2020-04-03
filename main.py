@@ -29,11 +29,21 @@ def categories():
     categories  = db.session.query(distinct(Meal_Category.category))
     return (render_template("categories.html", categories = categories))
 
+
 @app.route('/meals/')
 def meals():
+    arg = request.args
     page = request.args.get('page', 1, type = int)
     meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)
     return (render_template("meals.html", meals=meals))
+
+@app.route('/meals/country/<string:country>')
+def meals_country(country):
+    
+    page = request.args.get('page', 1, type = int)
+    meals = db.session.query(Meal_Name).filter_by(area = country).paginate(page = page, per_page = 10)
+    return (render_template("meal_country.html", meals=meals))
+
 
 @app.route('/countries/')
 def countries():

@@ -13,6 +13,9 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+a:link {
+  color: white;
+}
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -54,7 +57,7 @@ body {
   <tbody>
 	{% for i in countries %}
    		 <tr>
-		<td id="meals_table">{{i[0]}}</td>
+		<td id="meals_table"><a href = "/meals/country/{{i[0]}}">{{i[0]}} </a> </td>
     		</tr>
 	{% endfor %}
   </tbody>
