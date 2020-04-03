@@ -6,7 +6,6 @@
 
 </head>
 
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
   <a class="navbar-brand" href="{{url_for('home')}}"><h3>Food Mood</h3></a>
@@ -115,7 +114,7 @@ OLD HTML
      <tbody>
       {% for i in ingredients %}
       	<tr> 
-      		<td style="padding-left: 20%;">{{i.amount}} {{i.ingredient}} </td> 
+      		<td style="padding-left: 20%;"> {{ i.measure}} {{i.ingredient}} </td> 
       	</tr>
     	{% endfor %}
          <p style="padding-bottom: :5%">&nbsp;</p>
@@ -125,7 +124,7 @@ OLD HTML
     </div>
   <div id="instructions" class="card-body" style="margin-left: 5%; margin-right: 5%; margin-bottom: 5%">
     <p class="card-text font-weight-bolder">Instructions</p>
-    <p class="card-text">{{meal.strInstructions|safe}}</p>
+    <p class="card-text">{{meal.strInstructions | safe}}</p>
   </div>
 </div>    
     
