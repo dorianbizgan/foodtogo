@@ -2,20 +2,19 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> <!-- bootstrap styles sheet -->
- <link rel="stylesheet" type="text/css" href="../static/main.css">
+ <link rel="stylesheet" type="text/css" href="/static/main.css">
 
 
 </head>
 <style>
 body {
-  background-image: url('../static/photos/back7.jpg');
+  background-image: url('/static/photos/back7.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
-a:link {
-  color: white;
-}
+a { color: #fff; }
+
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -65,13 +64,14 @@ a:link {
 
   {% for page_num in meals.iter_pages() %}
     {% if page_num %}
-      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals', page = page_num)}}">{{page_num}} </a>
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('get_category', category = category, page = page_num)}}">{{page_num}} </a>
 
 
 
   {% endif %}
 
   {% endfor %}
+
 
 
 

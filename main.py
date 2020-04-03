@@ -48,14 +48,14 @@ def get_country(country):
     arg = request.args
     page = request.args.get('page', 1, type = int)
     meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==country).paginate(page = page, per_page =10)
-    return(render_template('meals.html', meals=meals))
+    return(render_template('meal_country.html', meals=meals, country = country))
 
 @app.route('/categories/<category>')
 def get_category(category):
     arg = request.args
     page = request.args.get('page', 1, type = int)
     meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
-    return(render_template('meals.html', meals=meals))
+    return(render_template('meal_category.html', meals=meals, category = category))
     
 @app.route('/meals/<int:meal_id>')
 def show_meal(meal_id):

@@ -13,9 +13,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
-a:link {
-  color: white;
-}
+a { color: #fff; }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -65,7 +63,7 @@ a:link {
 
   {% for page_num in meals.iter_pages() %}
     {% if page_num %}
-      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals_country', country = global_c, page = page_num)}}">{{page_num}} </a>
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('get_country', country = country, page = page_num)}}">{{page_num}} </a>
 
 
 
