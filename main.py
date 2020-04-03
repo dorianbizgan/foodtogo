@@ -7,6 +7,7 @@ from create_db import app, db, Meal_Name, Meal_Category, Meal_Area, Meal_Ingredi
 from sqlalchemy import func
 from sqlalchemy import distinct
 
+global_c = ""
 @app.route('/')
 def home():
 	return render_template("index.html")
@@ -33,12 +34,12 @@ def meals():
     return (render_template("meals.html", meals=meals))
 	#>>>>>>> f0c2f4a3dee7b2c2921b1d56b6678e84f66891a3
 
-@app.route('/meals/country/<string:country>')
+@app.route('/meals/country/<string:country>/')
 def meals_country(country):
-    
+    global_c = country
     page = request.args.get('page', 1, type = int)
-    meals = db.session.query(Meal_Name).filter_by(area = country).paginate(page = page, per_page = 10)
-    return (render_template("meal_country.html", meals=meals))
+    meals = db.session.query(Meal_Name).filter_by(area = global_c).paginate(page = page, per_page = 10)
+    return (render_template("meal_country.html", meals=meals, global_c= global_c))
 
 
 @app.route('/countries/')
