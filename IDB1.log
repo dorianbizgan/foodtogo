@@ -1,3 +1,33 @@
+*   0ada0b7 : Merge branch 'master' of https://gitlab.com/TechPointYT/ouramerica adding aboutUS information
+|\  
+| * d00f793 : Added the unittest output and .yml file
+* | 2851345 : added info about scraping API
+* | 3d13ca5 : testing merge
+|/  
+* bcf65f3 : Changed the background for countries
+* a5964a6 : fixed tests.py
+* 50b8892 : fixed linking issues and pagination issues
+* 1ad05c8 : Almost there
+* a06a6f2 : fixed instruction bug
+* 3d89c5f : fixed navbar and pagination issues with countries page
+*   0f17e80 : working show_meals
+|\  
+| * f0c2f4a : added links from countries
+| * 08504bb :  made hyperlinks white
+| * 3c7773b : added url linking and pagination in meals page
+| * b7e93d9 : added 3 unittests
+* | 763a673 : adding changes to show_meal
+|/  
+* 49e3829 : First integration front and back end
+* 1445751 : Remove the pycache files
+* 861f956 : Adding the database setup in the Try Folder
+* b36e0a6 : edited spacing was too large
+* a4c5451 : added HTML line breaks for new line in instructions
+* 30967f0 : nore fixes to encoding
+* 3631c4b : fixed encoding issue
+* fbeb714 : made show meals page more pretty
+* f8eabc7 : adding requirements.txt and app.yaml
+* 415b877 : adding log file
 * a72837b : removing .DS_Store file
 * a49669b : removing pycache file
 * 8489b80 : changed file structure
