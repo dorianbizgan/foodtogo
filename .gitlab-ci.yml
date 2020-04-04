@@ -1,0 +1,28 @@
+# .gitlab-ci.yml
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/python
+image: python:3.5
+
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
+services:
+  - postgres:latest
+
+variables:
+  POSTGRES_DB: mealsdb
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: "HM 8767839393"
+  POSTGRES_HOST_AUTH_METHOD: trust
+  DB_STRING: "postgres://$POSTGRES_USER@postgres:5432/$POSTGRES_DB"
+
+before_script:
+    - date
+    - uname -a
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+    - printenv | sort
+
+test:
+  script:
+  - python tests.py
