@@ -1,0 +1,502 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module models</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/dorianbizgan/Desktop/ouramerica/models.py">/Users/dorianbizgan/Desktop/ouramerica/models.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;beginning&nbsp;of&nbsp;models.py<br>
+#&nbsp;note&nbsp;that&nbsp;at&nbsp;this&nbsp;point&nbsp;you&nbsp;should&nbsp;have&nbsp;created&nbsp;"mealdb"&nbsp;database&nbsp;(see&nbsp;install_postgres.txt).</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial">sqlalchemy.ext.declarative.api.Model(<a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="models.html#Meal_Area">Meal_Area</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Meal_Category">Meal_Category</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Meal_Image">Meal_Image</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Meal_Ingredients">Meal_Ingredients</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Meal_Instructions">Meal_Instructions</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Meal_Name">Meal_Name</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Area">class <strong>Meal_Area</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Area">Meal_Area</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Area-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>area</strong></dt>
+</dl>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e3d450; Meal_Area&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_area', MetaData(bind=None), Column('... table=&lt;meal_area&gt;, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_area'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Area-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Category">class <strong>Meal_Category</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Category">Meal_Category</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Category-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>category</strong></dt>
+</dl>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e3d110; Meal_Category&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_category', MetaData(bind=None), Colu...le=&lt;meal_category&gt;, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_category'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Category-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Image">class <strong>Meal_Image</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Image">Meal_Image</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Image-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e82210; Meal_Image&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_image', MetaData(bind=None), Column(...table=&lt;meal_image&gt;, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_image'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Image-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Ingredients">class <strong>Meal_Ingredients</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Ingredients">Meal_Ingredients</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Ingredients-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_1</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_10</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_11</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_12</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_13</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_14</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_15</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_16</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_17</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_18</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_19</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_2</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_20</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_3</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_4</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_5</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_6</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_7</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_8</strong></dt>
+</dl>
+<dl><dt><strong>ingredient_9</strong></dt>
+</dl>
+<dl><dt><strong>measure_1</strong></dt>
+</dl>
+<dl><dt><strong>measure_10</strong></dt>
+</dl>
+<dl><dt><strong>measure_11</strong></dt>
+</dl>
+<dl><dt><strong>measure_12</strong></dt>
+</dl>
+<dl><dt><strong>measure_13</strong></dt>
+</dl>
+<dl><dt><strong>measure_14</strong></dt>
+</dl>
+<dl><dt><strong>measure_15</strong></dt>
+</dl>
+<dl><dt><strong>measure_16</strong></dt>
+</dl>
+<dl><dt><strong>measure_17</strong></dt>
+</dl>
+<dl><dt><strong>measure_18</strong></dt>
+</dl>
+<dl><dt><strong>measure_19</strong></dt>
+</dl>
+<dl><dt><strong>measure_2</strong></dt>
+</dl>
+<dl><dt><strong>measure_20</strong></dt>
+</dl>
+<dl><dt><strong>measure_3</strong></dt>
+</dl>
+<dl><dt><strong>measure_4</strong></dt>
+</dl>
+<dl><dt><strong>measure_5</strong></dt>
+</dl>
+<dl><dt><strong>measure_6</strong></dt>
+</dl>
+<dl><dt><strong>measure_7</strong></dt>
+</dl>
+<dl><dt><strong>measure_8</strong></dt>
+</dl>
+<dl><dt><strong>measure_9</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e64a90; Meal_Ingredients&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_ingredients', MetaData(bind=None), C...ngth=80), table=&lt;meal_ingredients&gt;), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_ingredients'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Ingredients-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Instructions">class <strong>Meal_Instructions</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Instructions">Meal_Instructions</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Instructions-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<dl><dt><strong>instructions</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e64e10; Meal_Instructions&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_instructions', MetaData(bind=None), ...meal_instructions&gt;, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_instructions'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Instructions-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Meal_Name">class <strong>Meal_Name</strong></a>(sqlalchemy.ext.declarative.api.Model)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Meal_Name">Meal_Name</a></dd>
+<dd>sqlalchemy.ext.declarative.api.Model</dd>
+<dd><a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Meal_Name-__init__"><strong>__init__</strong></a>(self, **kwargs)</dt><dd><tt>A&nbsp;simple&nbsp;constructor&nbsp;that&nbsp;allows&nbsp;initialization&nbsp;from&nbsp;kwargs.<br>
+&nbsp;<br>
+Sets&nbsp;attributes&nbsp;on&nbsp;the&nbsp;constructed&nbsp;instance&nbsp;using&nbsp;the&nbsp;names&nbsp;and<br>
+values&nbsp;in&nbsp;``kwargs``.<br>
+&nbsp;<br>
+Only&nbsp;keys&nbsp;that&nbsp;are&nbsp;present&nbsp;as<br>
+attributes&nbsp;of&nbsp;the&nbsp;instance's&nbsp;class&nbsp;are&nbsp;allowed.&nbsp;These&nbsp;could&nbsp;be,<br>
+for&nbsp;example,&nbsp;any&nbsp;mapped&nbsp;columns&nbsp;or&nbsp;relationships.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>idMeal</strong></dt>
+</dl>
+<dl><dt><strong>meal_name</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x102e1ae10; Meal_Name&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('meal_name', MetaData(bind=None), Column('..., primary_key=True, nullable=False), schema=None)</dl>
+
+<dl><dt><strong>__tablename__</strong> = 'meal_name'</dl>
+
+<hr>
+Methods inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;
+<hr>
+Data and other attributes inherited from sqlalchemy.ext.declarative.api.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
+Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
+
+<hr>
+Methods inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><a name="Meal_Name-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.model.html#Model">flask_sqlalchemy.model.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>app</strong> = &lt;Flask 'models'&gt;<br>
+<strong>db</strong> = &lt;SQLAlchemy engine=postgres://dorianbizgan:***@localhost:5432/mealsdb&gt;</td></tr></table>
+</body></html>
