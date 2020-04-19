@@ -32,7 +32,7 @@ a { color: #fff; }
         <a class="nav-link" href="{{url_for('categories')}}">Categories </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
+        <a class="nav-link" href="{{url_for('cuisines')}}">Cuisines</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('aboutUs')}}">About</a>
@@ -40,8 +40,8 @@ a { color: #fff; }
     </ul>
   </div>
 
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search for a Recipe" aria-label="Search">
+  <form method = 'POST'>
+    <input type='text' placeholder="Search Categories" size='20' name='name'>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>

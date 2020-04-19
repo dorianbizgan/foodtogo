@@ -64,7 +64,7 @@ class TestCase(unittest.TestCase):
         # test meal country/area exists in countries page
         responses = []
         for i in range(1,4):
-            response = self.app.get("/countries/?page=" + str(i), follow_redirects=True)
+            response = self.app.get("/cuisines/?page=" + str(i), follow_redirects=True)
             responses.append(response)
             self.assertEqual(response.status, "200 OK")
         self.assertEqual(len(responses), 3)

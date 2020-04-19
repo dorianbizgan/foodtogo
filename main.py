@@ -14,52 +14,89 @@ import sys
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def home():
-    return render_template("index.html")
+    arg = request.args
+    page = request.args.get('page', 1, type = int)
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            return(render_template('meals.html', meals=meals))
+    else:
+        return render_template("index.html")
 
 @app.route('/about-us/')
 def aboutUs():
     return (render_template("aboutUs.html"))
 
-@app.route('/categories/')
+@app.route('/categories/', methods=['GET', 'POST'])
 def categories():
     arg = request.args
     page = request.args.get('page', 1, type = int)
-    categories  = db.session.query(distinct(Meal_Category.category)).paginate(page = page, per_page =10)
-    return (render_template("categories.html", categories = categories))
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            categories = db.session.query(distinct(Meal_Category.category)).filter(Meal_Category.category == name).paginate(page = page, per_page =10)
+            return(render_template('categories.html', categories=categories))
+    else:
+        categories  = db.session.query(distinct(Meal_Category.category)).paginate(page = page, per_page =10)
+        return (render_template("categories.html", categories = categories))
 
-@app.route('/meals/')
+@app.route('/meals/',methods = ['GET','POST'])
 def meals():
     arg = request.args
     page = request.args.get('page', 1, type = int)
-    meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
-    return (render_template("meals.html", meals=meals))
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            return(render_template('meals.html', meals=meals))
+    else:
+        meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
+        return (render_template("meals.html", meals=meals))
 
-@app.route('/countries/')
-def countries():
+@app.route('/cuisines/', methods = ['GET','POST'])
+def cuisines():
     arg = request.args
     page = request.args.get('page', 1, type = int)
-    countries = db.session.query(distinct(Meal_Area.area)).paginate(page = page, per_page =10)
-    return (render_template("countries.html", countries = countries))
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area == name).paginate(page = page, per_page =10)
+            return(render_template('cuisines.html', cuisines=cuisines))
+    else:
+        cuisines = db.session.query(distinct(Meal_Area.area)).paginate(page = page, per_page =10)
+        return(render_template("cuisines.html", cuisines = cuisines))
 
-@app.route('/countries/<country>')
-def get_country(country):
+@app.route('/cuisines/<cuisine>',methods = ['GET','POST'])
+def get_cuisine(cuisine):
     arg = request.args
     page = request.args.get('page', 1, type = int)
-    meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==country).paginate(page = page, per_page =10)
-    return(render_template('meal_country.html', meals=meals, country = country))
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            return(render_template('meals.html', meals=meals))
+    else:
+        meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
+        return(render_template('meal_cuisine.html', meals=meals, cuisine = cuisine))
 
-@app.route('/categories/<category>')
+@app.route('/categories/<category>',methods = ['GET','POST'])
 def get_category(category):
     arg = request.args
     page = request.args.get('page', 1, type = int)
-    meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
-    return(render_template('meal_category.html', meals=meals, category = category))
+    if(request.method == 'POST'):
+        name = request.form['name']
+        if(len(name)!=0):
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            return(render_template('meals.html', meals=meals))
+    else:
+        meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
+        return(render_template('meal_category.html', meals=meals, category = category))
     
 @app.route('/meals/<int:meal_id>')
 def show_meal(meal_id):
-
         #name_ins = db.session.query(Meal_Name, Meal_Instructions).join(Meal_Instructions, Meal_Name.idMeal == Meal_Instructions.idMeal).filter(Meal_Name.idMeal == int(meal_id)).all()
         name =  db.session.query(Meal_Name).filter(Meal_Name.idMeal == int(meal_id)).all()
         ins = db.session.query(Meal_Instructions).filter(Meal_Instructions.idMeal == int(meal_id)).all()

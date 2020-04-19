@@ -32,7 +32,7 @@ a { color: #fff; }
         <a class="nav-link" href="{{url_for('categories')}}">Categories</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="{{url_for('countries')}}">Countries</a>
+        <a class="nav-link" href="{{url_for('cuisines')}}">Cuisines</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{url_for('aboutUs')}}">About</a>
@@ -40,8 +40,8 @@ a { color: #fff; }
     </ul>
   </div>
 
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search for a Recipe" aria-label="Search">
+  <form method = 'POST'>
+    <input type='text' placeholder="Search Cuisines" size='20' name='name'>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </nav>
@@ -50,21 +50,21 @@ a { color: #fff; }
 <table class="js-sort-table table-striped" id= "ing_meals" align="center">
     <thead>
      <tr>
-      <th class="js-sort-string" scope="col" id="meals_table">Countries</th>
+      <th class="js-sort-string" scope="col" id="meals_table">Cuisines</th>
     </tr>
   </thead>
   <tbody>
-	{% for i in countries.items %}
+	{% for i in cuisines.items %}
    		 <tr>
-		<td id="meals_table"><a href= "{{url_for('get_country', country= i[0])}}">{{i[0]}}</a></td>
+		<td id="meals_table"><a href= "{{url_for('get_cuisine', cuisine= i[0])}}">{{i[0]}}</a></td>
     		</tr>
 	{% endfor %}
   </tbody>
 </table>
 
-  {% for page_num in countries.iter_pages() %}
+  {% for page_num in cuisines.iter_pages() %}
     {% if page_num %}
-      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('countries', page = page_num)}}">{{page_num}} </a>
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('cuisines', page = page_num)}}">{{page_num}} </a>
     {% endif %}
   {% endfor %}
 
