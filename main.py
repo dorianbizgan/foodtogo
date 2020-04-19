@@ -38,7 +38,7 @@ def categories():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            categories = db.session.query(distinct(Meal_Category.category)).filter(Meal_Category.category == name).paginate(page = page, per_page =10)
+            categories = db.session.query(distinct(Meal_Category.category)).filter(Meal_Category.category.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('categories.html', categories=categories))
     else:
         categories  = db.session.query(distinct(Meal_Category.category)).paginate(page = page, per_page =10)
@@ -50,9 +50,10 @@ def meals():
     page = request.args.get('page', 1, type = int)
     if(request.method == 'POST'):
         name = request.form['name']
+        print(name)
         if(len(name)!=0):
             #Object.column.op('regexp')(REGEX)
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
@@ -65,7 +66,7 @@ def cuisines():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area == name).paginate(page = page, per_page =10)
+            cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('cuisines.html', cuisines=cuisines))
     else:
         cuisines = db.session.query(distinct(Meal_Area.area)).paginate(page = page, per_page =10)
@@ -78,7 +79,7 @@ def get_cuisine(cuisine):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
@@ -91,14 +92,25 @@ def get_category(category):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
         return(render_template('meal_category.html', meals=meals, category = category))
     
-@app.route('/meals/<int:meal_id>')
+@app.route('/meals/<int:meal_id>', methods = ['GET','POST'])
 def show_meal(meal_id):
+        arg = request.args
+        page = request.args.get('page', 1, type = int)
+        if(request.method == 'POST'):
+            name = request.form['name']
+            print(name)
+            if(len(name)!=0):
+                #Object.column.op('regexp')(REGEX)
+                meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+                return(render_template('meals.html', meals=meals))
+
+        
         #name_ins = db.session.query(Meal_Name, Meal_Instructions).join(Meal_Instructions, Meal_Name.idMeal == Meal_Instructions.idMeal).filter(Meal_Name.idMeal == int(meal_id)).all()
         name =  db.session.query(Meal_Name).filter(Meal_Name.idMeal == int(meal_id)).all()
         ins = db.session.query(Meal_Instructions).filter(Meal_Instructions.idMeal == int(meal_id)).all()
