@@ -21,7 +21,8 @@ def home():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
+            print(name)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         return render_template("index.html")
@@ -50,6 +51,7 @@ def meals():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
+            #Object.column.op('regexp')(REGEX)
             meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name == name).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
