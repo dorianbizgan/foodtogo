@@ -56,7 +56,9 @@ def meals():
             meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
+        
         meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
+        print(meals)
         return (render_template("meals.html", meals=meals))
 
 @app.route('/cuisines/', methods = ['GET','POST'])
@@ -79,7 +81,7 @@ def get_cuisine(cuisine):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
@@ -92,7 +94,7 @@ def get_category(category):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
