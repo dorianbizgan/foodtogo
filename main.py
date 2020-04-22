@@ -85,6 +85,7 @@ def cuisines():
     arg = request.args
     page = request.args.get('page', 1, type = int)
     if(request.method == 'POST'):
+        page = 1
         name = request.form['name']
         if(len(name)!=0):
             cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
@@ -98,6 +99,7 @@ def get_cuisine(cuisine):
     arg = request.args
     page = request.args.get('page', 1, type = int)
     if(request.method == 'POST'):
+        page = 1
         name = request.form['name']
         if(len(name)!=0):
             meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
