@@ -44,22 +44,41 @@ def categories():
         categories  = db.session.query(distinct(Meal_Category.category)).paginate(page = page, per_page =10)
         return (render_template("categories.html", categories = categories))
 
+
 @app.route('/meals/',methods = ['GET','POST'])
 def meals():
+    
     arg = request.args
     page = request.args.get('page', 1, type = int)
+    search = request.args.get('search')
+    #print(search, type(search))
+    #print(page, type(page))
+    try:
+        name = request.form['name']
+        search = name
+        page = 1
+    except:
+        pass
+    
     if(request.method == 'POST'):
         name = request.form['name']
-        print(name)
+        search=name
+        #print(name)
         if(len(name)!=0):
             #Object.column.op('regexp')(REGEX)
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
-            return(render_template('meals.html', meals=meals))
-    else:
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")).paginate(page = page, per_page=10)
+            #meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")).paginate(page = page, per_page =10)
+            print(db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")))
+            return(render_template('meals.html', meals=meals, search=search))
         
+    elif search != None:
+        meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + search + "%")).paginate(page = page, per_page=10)
+        return (render_template("meals.html", meals=meals, search=search))
+    else:
+
         meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
-        print(meals)
-        return (render_template("meals.html", meals=meals))
+        #print(db.session.query(Meal_Name))
+        return (render_template("meals.html", meals=meals, search=search))
 
 @app.route('/cuisines/', methods = ['GET','POST'])
 def cuisines():

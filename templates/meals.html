@@ -65,7 +65,7 @@ a { color: #fff; }
 
   {% for page_num in meals.iter_pages() %}
     {% if page_num %}
-      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals', page = page_num)}}">{{page_num}} </a>
+      <a class = "container-4 btn btn-outline-info mb-4" href = "{{ url_for('meals', page = page_num, search=search)}}">{{page_num}} </a>
     {% endif %}
   {% endfor %}
 
