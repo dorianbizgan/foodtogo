@@ -21,8 +21,7 @@ def home():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            print(name)
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike(str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         return render_template("index.html")
@@ -38,7 +37,7 @@ def categories():
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            categories = db.session.query(distinct(Meal_Category.category)).filter(Meal_Category.category.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+            categories = db.session.query(distinct(Meal_Category.category)).filter(Meal_Category.category.ilike(str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('categories.html', categories=categories))
     else:
         categories  = db.session.query(distinct(Meal_Category.category)).paginate(page = page, per_page =10)
@@ -66,16 +65,14 @@ def meals():
         #print(name)
         if(len(name)!=0):
             #Object.column.op('regexp')(REGEX)
-            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")).paginate(page = page, per_page=10)
+            meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike(name + "%")).paginate(page = page, per_page=10)
             #meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")).paginate(page = page, per_page =10)
-            print(db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + name + "%")))
             return(render_template('meals.html', meals=meals, search=search))
         
     elif search != None:
-        meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + search + "%")).paginate(page = page, per_page=10)
+        meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike(search + "%")).paginate(page = page, per_page=10)
         return (render_template("meals.html", meals=meals, search=search))
     else:
-
         meals = db.session.query(Meal_Name).paginate(page = page, per_page =10)#all()
         #print(db.session.query(Meal_Name))
         return (render_template("meals.html", meals=meals, search=search))
@@ -88,7 +85,7 @@ def cuisines():
         page = 1
         name = request.form['name']
         if(len(name)!=0):
-            cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+            cuisines = db.session.query(distinct(Meal_Area.area)).filter(Meal_Area.area.ilike(str(name) + "%")).paginate(page = page, per_page =10)
             return(render_template('cuisines.html', cuisines=cuisines))
     else:
         cuisines = db.session.query(distinct(Meal_Area.area)).paginate(page = page, per_page =10)
@@ -102,7 +99,7 @@ def get_cuisine(cuisine):
         page = 1
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Name.meal_name.ilike(str(name) + "%")).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Area, Meal_Name.idMeal == Meal_Area.idMeal).filter(Meal_Area.area==cuisine).paginate(page = page, per_page =10)
@@ -115,7 +112,7 @@ def get_category(category):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Name.meal_name.ilike(str(name) + "%")).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
@@ -130,7 +127,7 @@ def show_meal(meal_id):
             print(name)
             if(len(name)!=0):
                 #Object.column.op('regexp')(REGEX)
-                meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).paginate(page = page, per_page =10)
+                meals = db.session.query(Meal_Name).filter(Meal_Name.meal_name.ilike(str(name) + "%")).paginate(page = page, per_page =10)
                 return(render_template('meals.html', meals=meals))
 
         
