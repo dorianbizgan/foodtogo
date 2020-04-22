@@ -112,7 +112,7 @@ def get_category(category):
     if(request.method == 'POST'):
         name = request.form['name']
         if(len(name)!=0):
-            meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Name.meal_name.ilike("%" + isstr(name) + "%")).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
+            meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Name.meal_name.ilike("%" + str(name) + "%")).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
             return(render_template('meals.html', meals=meals))
     else:
         meals = db.session.query(Meal_Name).join(Meal_Category, Meal_Name.idMeal == Meal_Category.idMeal).filter(Meal_Category.category==category).paginate(page = page, per_page =10)
