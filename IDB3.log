@@ -1,3 +1,22 @@
+* ea23f2d : Link to the speak deck and updated issues and commits
+* db949db : added dependency
+* bc9d534 : finally unittests working
+* c7774d8 : fixed error with create
+* 0104054 : Back to og search functionality
+* 866cd79 : Back to the og search
+* 179df5e : Imprpve search
+* e7e62ad : fixed pagination issues for categories and cuisines
+* c9767b0 : fixed pagination with search
+* c7113e5 : addig work in progress files
+* 1cfd73b : fixed meal search redirect and added search to all pages with filters based on category
+* 5ed7659 : made search work for multiple types of input
+* 3fe846c : Added search functionality and changed countries t cuisines
+* 0cc7811 : Updated indv commits
+*   9d45064 : Merge branch 'master' of https://gitlab.com/TechPointYT/ouramerica
+|\  
+| * fee2962 : updating IDB2.log again
+* | 50fb28a : Updated the no. of issues
+|/  
 * 159a6fa : adding updated files
 * 39419c1 : updated IDB1.log
 *   0ada0b7 : Merge branch 'master' of https://gitlab.com/TechPointYT/ouramerica adding aboutUS information
