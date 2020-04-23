@@ -9,7 +9,7 @@ from flask import request
 class TestCase(unittest.TestCase):
     def setUp(self):
         app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:lionking@localhost:5432/mealsdb')
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:HM 8767839393@localhost:5432/mealsdb')
         self.app = app.test_client()
         db.session.remove()
 
