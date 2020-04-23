@@ -78,7 +78,7 @@ def create_meals():
             db.session.commit()
             
         except:
-            continue
+            pass
 	
 create_meals()
 # end of create_db.py
