@@ -9,16 +9,18 @@ from flask import request
 class TestCase(unittest.TestCase):
     def setUp(self):
         app.config['TESTING'] = True
-        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:HM 8767839393@localhost:5432/mealsdb')
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DB_STRING",'postgres://postgres:lionking@localhost:5432/mealsdb')
         self.app = app.test_client()
+        db.session.remove()
+
         db.drop_all()
         db.create_all()
         create_meals()
         self.json_file = load_json("meals.json")
 
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
+    # def tearDown(self):
+    #     db.session.remove()
+    #     db.drop_all()
 
     def test_create_meals(self):
         # test data is loaded successfully
@@ -83,6 +85,10 @@ class TestCase(unittest.TestCase):
         all_meals = Meal_Name.query.all()
         self.assertEqual(len(areas), len(all_meals))
 
-
+        # try:
+        #     db.create_all()
+        #     create_meals()
+        # except:
+        #     pass
 if __name__ == '__main__':
     unittest.main()

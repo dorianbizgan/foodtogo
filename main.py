@@ -5,6 +5,7 @@ from create_db import app, db, Meal_Name, Meal_Category, Meal_Area, Meal_Ingredi
 from sqlalchemy import func
 from sqlalchemy import distinct
 import sys
+import subprocess
 #import re
 #from sqlalchemy import join
 #from sqlalchemy.sql import select
@@ -26,9 +27,28 @@ def home():
     else:
         return render_template("index.html")
 
-@app.route('/about-us/')
+@app.route('/about-us/', methods = ['GET','POST'])
 def aboutUs():
-    return (render_template("aboutUs.html"))
+    blank = ""
+
+
+    if request.method == 'POST':
+        p = subprocess.Popen(["coverage", "run", "--branch", "tests.py"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                stdin=subprocess.PIPE)
+        out, err = p.communicate()
+        output=err+out
+        output = output.decode("utf-8") #convert from byte type to string type
+        output = str(output) #convert from byte type to string type
+        # create_meals()
+        return (render_template("aboutUs.html", output = "<br/>".join(output.split("\n"))))
+
+
+
+
+    else:
+        return render_template("aboutUs.html", output = blank)
 
 @app.route('/categories/', methods=['GET', 'POST'])
 def categories():
@@ -151,6 +171,7 @@ def show_meal(meal_id):
         return(render_template("show_meal.html", name = name, ins = ins, image = image, ingredients = ing, measure = mes))
 
 if __name__ == '__main__':
-	app.run()
+    app.debug = True
+    app.run()
 	
 
