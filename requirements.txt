@@ -11,3 +11,4 @@ SQLAlchemy==1.2.18
 Werkzeug==0.14.1
 gunicorn==19.7.1
 coverage==5.1
+gevent==1.1.2
